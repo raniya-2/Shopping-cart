@@ -4,6 +4,12 @@ A responsive Shopping Cart web application built using React, TypeScript, Vite, 
 
 The application allows users to browse products, search and filter products, manage their shopping cart, calculate the order total, and complete a checkout process.
 
+## 🚀 Live Demo
+
+**Live Website:** [Shopping Cart Application] https://shopping-cart-gamma-woad.vercel.app
+
+**GitHub Repository:** [View Source Code]https://github.com/raniya-2/Shopping-cart.git
+
 ## Features
 
 ### 1. Product Listing
