@@ -1,17 +1,17 @@
+import { useCartStore } from '../store/cartStore'
 import { useProducts } from '../hooks/useProducts'
 import { useProductFilters } from '../hooks/useProductFilters'
 import ProductCard from './ProductCard'
 import ProductFilters from './ProductFilters'
-import type { Product } from '../schemas/product'
+
 
 export default function ProductGrid() {
   const { data: products, isLoading, isError, error, refetch } = useProducts()
   const filters = useProductFilters(products)
 
   // TEMPORARY: replaced by the Zustand cart in Phase 5
-  const handleAddToCart = (product: Product) => {
-    console.log('Add to cart:', product.title)
-  }
+  const addToCart = useCartStore((state) => state.addToCart)  
+   
 
   if (isLoading) {
     return (
@@ -72,7 +72,7 @@ export default function ProductGrid() {
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filters.filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
+            <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
           ))}
         </div>
       )}

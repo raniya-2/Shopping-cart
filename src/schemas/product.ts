@@ -14,3 +14,4 @@ export const productsResponseSchema = z.object({
 })
 
 export type Product = z.infer<typeof productSchema>
+export type CartItem = Product & { quantity: number }
